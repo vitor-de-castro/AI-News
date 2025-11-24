@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+
 }
 
 .banner h1 {
@@ -21,9 +22,20 @@
 }
 
 .cards {
+  margin-top: 40px;
+  height: 250px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.cards p {
+ font-size: 70px;
+  color: white;
+  opacity: .9;
+  text-align: center ;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-top: 60px;
 }
 
 // Smallest device
