@@ -32,7 +32,7 @@ puts "Nettoyage de la base de données"
 
 #Fonction pour recup les articles
   categories.each do |category|
-    2.times do
+    10.times do
       get_articles = URI.parse(url_change(category)).read
       article = JSON.parse(get_articles)
 
