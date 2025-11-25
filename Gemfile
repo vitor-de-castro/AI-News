@@ -7,6 +7,7 @@ gem "rails", "~> 7.1.6"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
+gem 'faker'
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -22,9 +23,11 @@ gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
-
+gem 'json'
+gem 'open-uri'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+gem 'rest-client'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
