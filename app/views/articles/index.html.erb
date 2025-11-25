@@ -1,3 +1,6 @@
+
+<div class="container">
+
 <% @articles.each do |article| %>
 
 <%= article.tile %>
@@ -7,6 +10,7 @@
 <div class="row">
   <div class="col">
     <!-- ... -->
-    <%= button_to "New chat", articles_path(category: params[:category]), class: "btn btn-primary" %>
+    <%= button_to "New chat", chats_path(category: params[:category]), class: "btn btn-primary" %>
   </div>
+</div>
 </div>

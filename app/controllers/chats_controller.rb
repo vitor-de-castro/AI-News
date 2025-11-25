@@ -3,9 +3,20 @@ class ChatsController < ApplicationController
   def create
     @chat = Chat.new(title: "New chat")
     @chat.user = current_user
-    raise
-    # if @chat.save
-    #   redirect_to articles_path(category: params)
 
+    @category = params[:category]
+
+    if @chat.save
+      redirect_to chat_path(@chat, @category)
+    else
+      render "articles/index"
+    end
   end
+
+  def show
+    @chat = current_user.chats.find(params[:id])
+    @message = Message.new
+    @category = params[:format]
+  end
+
 end
