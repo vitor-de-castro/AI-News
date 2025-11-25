@@ -5,26 +5,16 @@ require 'rest-client'
 require 'json'
 require 'open-uri'
 
-categories = ["sports", "technology", "health", "science", "entertainment", "business"]
+categories = ["sport", "technology", "environment", "science", "culture", "business"]
 
-
-NEWS_API_KEY = "b878c6fd89b64f04b240f60f689bc52d"
 
 #Fonction pour changer l'url en fonction de la catégorie souhaitée
-def url_change(categories)
-  if categories == "sports"
-    url = "https://newsapi.org/v2/top-headlines?category=sports&language=en&apiKey=#{NEWS_API_KEY}"
-  elsif categories == "technology"
-    url = "https://newsapi.org/v2/top-headlines?category=technology&language=en&apiKey=#{NEWS_API_KEY}"
-  elsif categories == "health"
-    url = "https://newsapi.org/v2/top-headlines?category=health&language=en&apiKey=#{NEWS_API_KEY}"
-  elsif categories == "science"
-    url = "https://newsapi.org/v2/top-headlines?category=science&language=en&apiKey=#{NEWS_API_KEY}"
-  elsif categories == "entertainment"
-    url = "https://newsapi.org/v2/top-headlines?category=entertainment&language=en&apiKey=#{NEWS_API_KEY}"
-  elsif categories == "business"
-    url = "https://newsapi.org/v2/top-headlines?category=business&language=en&apiKey=#{NEWS_API_KEY}"
-  end
+# Répéter la clé pour le contexte
+
+def url_change(category)
+  # Ceci fonctionne pour 'sport', 'technology', 'culture', 'environment', etc.
+  url = "https://content.guardianapis.com/#{category.downcase}?api-key=#{NEWS_API_KEY}&show-fields=all&lang=en&page-size=1"
+  return url
 end
 
 Article.destroy_all
@@ -32,24 +22,30 @@ puts "Nettoyage de la base de données"
 
 #Fonction pour recup les articles
   categories.each do |category|
+    begin
     10.times do
       get_articles = URI.parse(url_change(category)).read
-      article = JSON.parse(get_articles)
+      data = JSON.parse(get_articles)
 
-      articles = article["articles"]
-      puts articles[0]
-      new_article = Article.new(
-        title: article["title"],
-        content: article["description"],
-        author: article["author"] || "Auteur inconnu",
-        date: Faker::Date.between(from: 600.days.ago, to: Date.today),
-        category: category
-      )
-      new_article.save
+      articles = data["response"]["results"]
+      articles.each do |art|
+        new_article = Article.new(
+          title: art["webTitle"],
+          content: art["fields"]["bodyText"] || art["fields"]["body"],
+          author: art["fields"]["byline"] || "Auteur inconnu",
+          date: art["webPublicationDate"]
+        )
+        new_article.save!
+      end
+      puts "Import terminé ! #{Article.count} articles créés"
+      rescue => e
+    # Le script affiche l'erreur mais continue l'itération !
+    puts "   ERREUR lors du traitement de la catégorie #{category} : #{e.message}"
+    next # Passe à la catégorie suivante
+  end
     end
   end
 
-puts "Import terminé ! #{Article.count} articles créés"
 
 #Fonction pour faire appel à l'api et parser
 
