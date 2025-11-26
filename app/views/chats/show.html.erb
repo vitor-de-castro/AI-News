@@ -1,28 +1,52 @@
-<div class="bg-danger">
   <div class="container bg-danger">
+
     <h1 id="chat_title" class="text-primary"><%= @chat.title %></h1>
-    <div id="messages" class="bg-danger">
-      <% @chat.messages.each do |message| %>
-        <% if message.role == "user" %>
-          <div class="d-flex justify-content-end my-2">
-            <div class="bg-primary px-3 py-3 text-light-emphasis rounded-3">
-              <%= message.content %>
+
+    <div class="row my-5">
+
+      <div class="col-2">
+
+        <% current_user.chats.each do |chat| %>
+          <ul>
+            <li class="text-primary"><%= chat.title %></li>
+          </ul>
+          <% end %>
+
+      </div>
+
+      <div class="col-1 border-start border-2">
+
+      </div>
+
+      <div id="messages" class="col-9">
+
+        <% @chat.messages.each do |message| %>
+          <% if message.role == "user" %>
+            <div class="d-flex justify-content-end my-2">
+              <div class="bg-primary px-3 py-3 text-light-emphasis rounded-3">
+                <%= message.content %>
+              </div>
             </div>
-          </div>
-        <% elsif message.role == "assistant" %>
-          <div class="d-flex justify-content-start my-5">
-            <div class="bg-primary px-3 py-3 text-light-emphasis rounded-3">
-              <%= message.content %>
+          <% elsif message.role == "assistant" %>
+            <div class="d-flex justify-content-start my-5">
+              <div class="bg-primary px-3 py-3 text-light-emphasis rounded-3">
+                <%= message.content %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+
+        </div>
     </div>
-    <div id="new_message_container" class="fixed-bottom container">
+
+    <div id="new_message_container" class="container my-4">
+
       <%= simple_form_for [@chat, @message] do |f| %>
-        <%= f.input :content, label: "Ask a question", required: true, placeholder: "You can ask me anything related to #{@category}" %>
-        <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
+        <%= f.input :content, label: false, required: true, placeholder: "You can ask me anything related to #{@category}" %>
+        <%= f.button :submit, 'Ask NewsBot', class: 'btn btn-primary' %>
       <% end %>
+
     </div>
+
   </div>
 </div>
