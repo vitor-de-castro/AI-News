@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
       build_conversation_history
       response = @ruby_llm_chat.with_instructions(instructions(system_prompt,challenge_context(@articles))).ask(@message.content)
       Message.create(role: "assistant", content: response.content, chat: @chat)
+      @chat.generate_title_from_first_message
       redirect_to chat_path(@chat, params[:category])
     else
       render "chats/show", status: :unprocessable_entity
