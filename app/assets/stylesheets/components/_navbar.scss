@@ -18,3 +18,15 @@
   border-radius: 8px; /* your roundness */
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbar-title {
+  font-size: 2.0rem;
+  font-weight: 600;
+  margin-left: 10px;
+  color: #000;
+}
