@@ -22,9 +22,15 @@
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to new_user_session_path do %>
               <a class="dropdown-item" href="#">Login</a>
+              <% end %>
+              <%= link_to new_user_registration_path do %>
               <a class="dropdown-item" href="#">Sign-up</a>
+               <% end %>
+              <%= link_to root_path do %>
               <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+                <% end %>
             </div>
           </li>
           <!--li class="nav-item"-->
