@@ -2,10 +2,9 @@ class MessagesController < ApplicationController
 
 
   def create
+    @category = params[:message][:category]
+    @articles = Article.where(category: params[:message][:category]).first(5)
 
-    @category = params[:category]
-
-    @articles = Article.where(category: params[:category]).first(5)
     system_prompt = "You are a News Assistant that is working for the website AI-News, you are specialized, a great expert in #{@category}.\n\n I am somebody who wants to know more about a news category.\n\n Help me get the most relevant news of the chosen category and summarize it.\n\n Answer concisely in Markdown."
     @chat = current_user.chats.find(params[:chat_id])
 
@@ -18,7 +17,7 @@ class MessagesController < ApplicationController
       response = @ruby_llm_chat.with_instructions(instructions(system_prompt,challenge_context(@articles))).ask(@message.content)
       Message.create(role: "assistant", content: response.content, chat: @chat)
       @chat.generate_title_from_first_message
-      redirect_to chat_path(@chat, params[:category])
+      redirect_to chat_path(@chat, params[:message][:category])
     else
       render "chats/show", status: :unprocessable_entity
     end

@@ -10,7 +10,9 @@
 
             <hr class="my-4">
 
-
+            <div class="col-12 d-flex justify-content-center">
+              <%= button_to "New chat", chats_path(category: params[:category]), class: "btn btn-primary" %>
+            </div>
             <div class="article-meta mb-4 text-center">
               <p class="mb-2"><strong>Author :</strong> <%= @article.author %></p>
               <p class="mb-2"><strong>Date :</strong> <%= @article.date %></p>

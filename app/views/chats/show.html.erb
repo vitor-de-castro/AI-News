@@ -43,6 +43,7 @@
 
       <%= simple_form_for [@chat, @message] do |f| %>
         <%= f.input :content, label: false, required: true, placeholder: "You can ask me anything related to #{@category}" %>
+        <%= f.hidden_field :category, value: @category %>
         <%= f.button :submit, 'Ask NewsBot', class: 'btn btn-primary' %>
       <% end %>
 
