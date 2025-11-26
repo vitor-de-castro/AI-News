@@ -5,13 +5,13 @@
         <div class="card">
           <div class="card-body p-4 p-md-5">
             <!-- Titre de l'article -->
-            <h2 class="card-title mb-4 text-center"><%= @article.title %></h2>
+            <h2 class="card-title mb-4 text-center"><strong><%= @article.title %></strong> </h2>
 
 
             <hr class="my-4">
 
             <div class="col-12 d-flex justify-content-center">
-              <%= button_to "New chat", chats_path(category: params[:category]), class: "btn btn-primary" %>
+              <%= button_to "News chatbot", chats_path(category: params[:category]), class: "btn btn-primary" %>
             </div>
             <div class="article-meta mb-4 text-center">
               <p class="mb-2"><strong>Author :</strong> <%= @article.author %></p>
@@ -28,7 +28,7 @@
 
             <!-- Bouton retour -->
             <div class="text-center mt-5">
-              <%= link_to "← Retour aux articles", articles_path, class: "btn btn-dark" %>
+              <%= link_to "← Back to articles", articles_path, class: "btn btn-dark" %>
             </div>
           </div>
         </div>
