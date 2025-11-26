@@ -30,3 +30,32 @@
   border-radius: 15px;
   margin: 15px;
 }
+
+.card {
+  background-color: #8ea2ce;
+  border-radius: 15px;
+}
+
+#background {
+  min-height: 100vh;
+}
+
+.article-meta {
+  color: #2c3e50;
+  font-size: 0.95rem;
+
+  strong {
+    color: #1a252f;
+  }
+}
+
+.article-content {
+  color: #1a252f;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+hr {
+  border-color: rgba(0, 0, 0, 0.2);
+}
