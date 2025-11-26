@@ -23,20 +23,36 @@
 
 .cards {
   margin-top: 40px;
-  height: 250px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-bottom: 40px;
 }
 
+.card-category {
+  height: 250px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+}
+
 .cards p {
- font-size: 70px;
+ font-size: 60px;
   color: white;
   opacity: .9;
   text-align: center ;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  margin-top: 60px;
 }
 
 // Smallest device
