@@ -1,0 +1,36 @@
+<div id="background">
+  <div class="container-fluid px-4 py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="card">
+          <div class="card-body p-4 p-md-5">
+            <!-- Titre de l'article -->
+            <h2 class="card-title mb-4 text-center"><%= @article.title %></h2>
+
+
+            <hr class="my-4">
+
+
+            <div class="article-meta mb-4 text-center">
+              <p class="mb-2"><strong>Author :</strong> <%= @article.author %></p>
+              <p class="mb-2"><strong>Date :</strong> <%= @article.date %></p>
+              <p class="mb-0"><strong>Category :</strong> <%= @article.category.capitalize %></p>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Contenu de l'article -->
+            <div class="article-content">
+              <%= simple_format(@article.content) %>
+            </div>
+
+            <!-- Bouton retour -->
+            <div class="text-center mt-5">
+              <%= link_to "← Retour aux articles", articles_path, class: "btn btn-dark" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
