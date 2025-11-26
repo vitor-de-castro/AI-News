@@ -24,15 +24,12 @@ class MessagesController < ApplicationController
   private
 
   def challenge_context(articles)
-    "Here are the articles you have access to #{articles.map }"
+    "Here are the articles you have access to #{ }"
   end
 
   def instructions(prompt, articles)
     [prompt, articles].compact.join("\n\n")
   end
-
-
-  private
 
   def message_params
     params.require(:message).permit(:content)
