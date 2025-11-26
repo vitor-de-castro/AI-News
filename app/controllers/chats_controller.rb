@@ -1,7 +1,7 @@
 class ChatsController < ApplicationController
 
   def create
-    @chat = Chat.new(title: "New chat")
+    @chat = Chat.new(title: Chat::DEFAULT_TITLE)
     @chat.user = current_user
 
     @category = params[:category]
