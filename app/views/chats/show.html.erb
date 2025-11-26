@@ -26,11 +26,3 @@
     <% end %>
   <% end %>
 </div>
-
-<div id="new_message_container">
-  <%= simple_form_for [@chat, @message] do |f| %>
-    <%= hidden_field_tag :category, params[:format] %>
-    <%= f.input :content, label: "Ask a question", required: true, placeholder: "How should I get started with the challenge?" %>
-    <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
-  <% end %>
-</div>

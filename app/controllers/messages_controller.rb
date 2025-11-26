@@ -12,8 +12,9 @@ class MessagesController < ApplicationController
     @message.chat = @chat
     @message.role = "user"
     if @message.save!
-      ruby_llm_chat = RubyLLM.chat
-      response = ruby_llm_chat.with_instructions(instructions(system_prompt,challenge_context(@articles))).ask(@message.content)
+      @ruby_llm_chat = RubyLLM.chat
+      build_conversation_history
+      response = @ruby_llm_chat.with_instructions(instructions(system_prompt,challenge_context(@articles))).ask(@message.content)
       Message.create(role: "assistant", content: response.content, chat: @chat)
       redirect_to chat_path(@chat, params[:category])
     else
