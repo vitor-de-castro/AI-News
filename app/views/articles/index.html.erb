@@ -1,16 +1,25 @@
+<div id="background">
+  <div class="container-fluid px-4 py-4">
+    <!-- Bouton New Chat en haut -->
+    <div class="row mb-4">
+      <div class="col-12 d-flex justify-content-center">
+        <%= button_to "New chat", chats_path(category: params[:category]), class: "btn btn-primary" %>
+      </div>
+    </div>
 
-<div class="container">
-
-<% @articles.each do |article| %>
-
-<%= article.title %>
-
-<% end %>
-
-<div class="row">
-  <div class="col">
-    <!-- ... -->
-    <%= button_to "New chat", chats_path(category: params[:category]), class: "btn btn-primary" %>
+    <!-- Cards d'articles -->
+    <div class="row">
+      <% @articles.each do |article| %>
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= article.title %></h5>
+              <p class="card-text"><%= article.author %></p>
+              <a href="#" class="btn btn-dark">Read this article</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>

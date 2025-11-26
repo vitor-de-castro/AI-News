@@ -10,3 +10,27 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+ background-color: #091326;
+}
+
+.card{
+  background-color: #8ea2ce;
+  border-radius: 15px;
+}
+
+#background{
+  background-color: #0C121D;
+}
+
+.container {
+  padding-left: 5px; /* Réduisez ces valeurs */
+  padding-right: 5px;
+}
+
+
+#new-chat-btn{
+  border-radius: 15px;
+  margin: 15px;
+}

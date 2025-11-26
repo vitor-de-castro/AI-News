@@ -1,29 +1,28 @@
-
-
-<h1 id="chat_title"><%= @chat.title %></h1>
-
-<div id="messages">
-  <% @chat.messages.each do |message| %>
-    <% if message.role == "user" %>
-      <div class="d-flex justify-content-end mb-2">
-        <div class="bg-white px-3 pb-0 pt-3 rounded-pill">
-          <%= message.content %>
-        </div>
-      </div>
-    <% elsif message.role == "assistant" %>
-      <div class="d-flex justify-content-start mb-5">
-        <div class="px-3 pb-0 pt-3">
-          <%= message.content %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-
-<div id="new_message_container">
-  <%= simple_form_for [@chat, @message] do |f| %>
-    <%= hidden_field_tag :category, params[:format] %>
-    <%= f.input :content, label: "Ask a question", required: true, placeholder: "How should I get started with the challenge?" %>
-    <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
-  <% end %>
+<div class="bg-danger">
+  <div class="container bg-danger">
+    <h1 id="chat_title" class="text-primary"><%= @chat.title %></h1>
+    <div id="messages" class="bg-danger">
+      <% @chat.messages.each do |message| %>
+        <% if message.role == "user" %>
+          <div class="d-flex justify-content-end my-2">
+            <div class="bg-primary px-3 py-3 text-light-emphasis rounded-3">
+              <%= message.content %>
+            </div>
+          </div>
+        <% elsif message.role == "assistant" %>
+          <div class="d-flex justify-content-start my-5">
+            <div class="bg-primary px-3 py-3 text-light-emphasis rounded-3">
+              <%= message.content %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div id="new_message_container" class="fixed-bottom container">
+      <%= simple_form_for [@chat, @message] do |f| %>
+        <%= f.input :content, label: "Ask a question", required: true, placeholder: "You can ask me anything related to #{@category}" %>
+        <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
 </div>
