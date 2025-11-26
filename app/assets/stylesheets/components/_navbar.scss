@@ -10,3 +10,11 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-logo {
+  width: 50px;        /* adjust */
+  height: 50px;       /* adjust */
+  object-fit: cover;  /* keeps image from stretching */
+  border-radius: 8px; /* your roundness */
+}
+
