@@ -8,4 +8,8 @@ class ArticlesController < ApplicationController
       @articles = Article.all
     end
   end
+
+  # def show
+  #   @article = Article.find(params[:id])
+  #   @latest_articles = Article.order(created_at: :desc).limit(10)
 end
