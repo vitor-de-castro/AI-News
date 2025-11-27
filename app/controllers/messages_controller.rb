@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def create
     @category = params[:message][:category]
     @articles = Article.where(category: params[:message][:category]).first(5)
-
+    
     system_prompt = "You are a News Assistant that is working for the website AI-News, you are specialized, a great expert in #{@category}.\n\n I am somebody who wants to know more about a news category.\n\n Help me get the most relevant news of the chosen category and summarize it.\n\n Answer concisely in Markdown."
     @chat = current_user.chats.find(params[:chat_id])
 
