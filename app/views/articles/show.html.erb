@@ -1,38 +1,36 @@
-<div id="background">
-  <div class="container-fluid px-4 py-5">
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-8">
-        <div class="card">
-          <div class="card-body p-4 p-md-5">
-            <!-- Titre de l'article -->
-            <h2 class="card-title mb-4 text-center"><strong><%= @article.title %></strong> </h2>
+<div class="banner article-img" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlJTIwY29tcHV0ZXJ8ZW58MHx8MHx8fDA%3D);">
 
-
-            <hr class="my-4">
-
-            <div class="col-12 d-flex justify-content-center">
-              <%= button_to "News chatbot", chats_path(category: params[:category]), class: "btn btn-primary" %>
-            </div>
-            <div class="article-meta mb-4 text-center">
-              <p class="mb-2"><strong>Author :</strong> <%= @article.author %></p>
-              <p class="mb-2"><strong>Date :</strong> <%= @article.date %></p>
-              <p class="mb-0"><strong>Category :</strong> <%= @article.category.capitalize %></p>
-            </div>
-
-            <hr class="my-4">
-
-            <!-- Contenu de l'article -->
-            <div class="article-content">
-              <%= simple_format(@article.content) %>
-            </div>
-
-            <!-- Bouton retour -->
-            <div class="text-center mt-5">
-              <%= link_to "← Back to articles", articles_path, class: "btn btn-dark" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="container">
+    <h2 class="bottom-center"><%= @article.title %></h2>
   </div>
+
+</div>
+
+<div class="container text-white">
+
+  <div class="card mt-5 ">
+
+    <div class="text-content">
+
+      <p> <%= paragraphs_every_3_sentences(@article.content)%></p>
+
+      <p class="d-flex justify-content-end mt-5 pb-2"> This article was published the <%= @article.date.strftime("%d/%m/%Y") %> <br>
+      by <%= @article.author %> </p>
+
+    </div>
+
+    <div class="row">
+
+      <div class="text-center d-flex justify-content-between mb-4">
+
+        <div><%= link_to "← Back to articles", articles_path(category: @article.category), class: "btn btn-dark ms-3" %></div>
+        <div> <%= link_to "Ask NewsBot →", chats_path(category: @article.category), data: { turbo_method: :post }, class: "btn btn-dark me-3" %></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
 </div>
