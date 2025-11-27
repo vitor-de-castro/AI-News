@@ -1,2 +1,17 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.card-article .card {
+  transition: 0.3s ease;
+  overflow: hidden; // ← Important !
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(255, 255, 255, 0.434);
+  }
+}
+
+.card-article .card-img-top {
+  display: block;
+  width: 100%;
+}
