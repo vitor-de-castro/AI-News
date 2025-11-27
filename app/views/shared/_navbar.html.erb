@@ -13,25 +13,27 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <ul class="navbar-nav ms-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"></a>
+
+          <li class="nav-item active" data-controller="dropdown">
+
+            <a class="nav-link" href="#" data-action="mouseover->dropdown#drop">Categories</a>
+            
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                <a class="dropdown-item" href="/users/sign_in">Login</a>
+                <a class="dropdown-item" href="/users/sign_up">Sign-up</a>
+                <a class="dropdown-item" data-turbo-method="delete" href="pages#home">Log out</a>
+
+              </div>
+
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"></a>
-          </li>
-          <li class="nav-item dropdown">
+
+          <li class="nav-item dropdown ms-5">
+
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" />
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-              <a class="dropdown-item" href="/users/sign_in">Login</a>
+            <%= user_signed_in? ? render("shared/signed_in") : render("sahred/signing_in") %>
 
-
-              <a class="dropdown-item" href="/users/sign_up">Sign-up</a>
-
-
-              <a class="dropdown-item" data-turbo-method="delete" href="pages#home">Log out</a>
-
-            </div>
           </li>
           <!--li class="nav-item"-->
           <!--/li-->

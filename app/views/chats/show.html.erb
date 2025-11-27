@@ -1,4 +1,4 @@
-  <div class="container bg-danger">
+  <div class="container chatbox">
 
     <h1 id="chat_title" class="text-primary my-5"><%= @chat.title %></h1>
 
@@ -23,13 +23,13 @@
         <% @chat.messages.each do |message| %>
           <% if message.role == "user" %>
             <div class="d-flex justify-content-end my-2">
-              <div class="bg-primary px-3 py-3 text-light-emphasis rounded-3">
+              <div class="bg-primary px-3 py-3 rounded-3">
                 <%= message.content %>
               </div>
             </div>
           <% elsif message.role == "assistant" %>
             <div class="d-flex justify-content-start my-5">
-              <div class="bg-primary px-3 py-3 text-light-emphasis rounded-3 me">
+              <div class="px-3 py-3 rounded-3 answer me">
                 <%= message.content %>
               </div>
             </div>
@@ -39,12 +39,12 @@
         </div>
     </div>
 
-    <div id="new_message_container" class="my-4 sticky-bottom">
+    <div id="new_message_container" class="my-4">
 
       <%= simple_form_for [@chat, @message] do |f| %>
         <%= f.input :content, label: false, required: true, placeholder: "You can ask me anything related to #{@category}" %>
         <%= f.hidden_field :category, value: @category %>
-        <%= f.button :submit, 'Ask NewsBot', class: 'btn btn-primary' %>
+        <%= f.button :submit, 'Ask NewsBot', class: 'btn-chat' %>
       <% end %>
 
     </div>

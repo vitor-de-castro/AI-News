@@ -1,0 +1,41 @@
+.chatbox {
+  background-color: rgb(22, 23, 54);
+  border-style: solid;
+  border-color: rgb(207, 203, 216);
+  margin-top: 30px;
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.434);
+}
+
+.chatbox h1 {
+text-align: center;
+
+}
+
+.bg-primary {
+margin-right: 25px;
+color: black;
+}
+
+.answer {
+  background-color: rgb(179, 216, 255);
+  margin-right: 25px;
+  color: black;
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.244);
+}
+
+.form-control {
+  background-color: white;
+  padding-top:18px;
+  color: black;
+  margin-left: 400px;
+}
+
+textarea.form-control {
+  height: 60px;
+  width: 590px;
+}
+
+.btn-chat {
+  background-color: rgb(179, 216, 255);
+  margin-left: 630px;
+}
