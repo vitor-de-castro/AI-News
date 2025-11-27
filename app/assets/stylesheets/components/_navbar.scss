@@ -29,4 +29,52 @@
   font-weight: 600;
   margin-left: 10px;
   color: #000;
+  position: absolute;
+  left: 50%;             /* milieu horizontal de la page */
+  transform: translateX(-50%); /* ramène le centre du texte sur le milieu */
+  font-weight: bold;     /* ajustable */
+  z-index: 1;
 }
+
+// dropdown button
+
+.dropbtn {
+  background-color: #EEEEEE;
+  color: black;
+  padding: 16px;
+  font-size: 20px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #EEEEEE;
+  width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #EEEEEE;}
