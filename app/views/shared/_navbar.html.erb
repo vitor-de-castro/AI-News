@@ -23,12 +23,12 @@
             <div class="dropdown-content">
               <div>
 
-                <%= link_to "Sport", articles_path(category: "sport")  %>
+                <%= link_to "Sport", articles_path(category: "sport"), class: "top-drop" %>
                 <%= link_to "Tech", articles_path(category: "technology") %>
                 <%= link_to "Science", articles_path(category: "science") %>
                 <%= link_to "Environment", articles_path(category: "environment") %>
                 <%= link_to "Leisure", articles_path(category: "culture") %>
-                <%= link_to "Finance", articles_path(category: "business") %>
+                <%= link_to "Finance", articles_path(category: "business"), class: "bottom-drop" %>
 
               </div>
             </div>
