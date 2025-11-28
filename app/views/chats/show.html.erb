@@ -7,8 +7,17 @@
       <div class="col-2">
 
         <% current_user.chats.each do |chat| %>
-          <ul>
-            <li class="text-primary"><%= chat.title %></li>
+          <ul class="ul">
+            <li class="text-primary d-flex justify-content-between">
+
+              <div><%= link_to chat.title, chat_path(chat), class: "chat" %></div>
+
+              <div> <%= link_to chat_path(chat), data: { turbo_method: :delete, turbo_confirm: "Supprimer ?" }, class: "btn-delete" do %>
+                      <i class="fa-regular fa-circle-xmark"></i>
+                    <% end %>
+              </div>
+
+              </li>
           </ul>
           <% end %>
 
