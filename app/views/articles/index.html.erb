@@ -28,7 +28,7 @@
               <li class="list-group-item"><em><%= article.author %></em></li>
               <li class="list-group-item"><em><%= article.created_at.strftime("%d/%m/%Y") %></em></li>
               <br>
-              <h5 class="card-summarize"><em><%= article.summary %></em></h5>
+              <h5 class="card-summarize">Résumé :<em><%= article.summary %></em></h5>
               <br>
             <div class="card-body">
               <%= button_to "Generate a resume", summarize_article_article_path(article), class: "btn btn-dark rounded-pill position-absolute bottom-0 start-0 m-2" %>
