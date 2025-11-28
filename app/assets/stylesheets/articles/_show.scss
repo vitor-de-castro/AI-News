@@ -10,7 +10,7 @@
 }
 
 .bottom-center {
-  color: white;
+  color: rgb(221, 219, 219);
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
   font-size: 48px;
   font-weight: 700;
@@ -28,11 +28,14 @@
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
   transition: box-shadow 0.3s ease;
-    background: linear-gradient(
-    135deg,
-    #e3f1ff,
-    #c7dbff
-  );
+  background: linear-gradient(
+  135deg,
+  rgb(14, 18, 39),
+  rgb(2, 56, 110)
+);
+  color:white;
+  border-style: solid;
+  border-color: rgb(207, 203, 216);
   padding: 40px;
 }
 
