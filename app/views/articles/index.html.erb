@@ -10,20 +10,8 @@
       <% @articles.reverse_each do |article| %>
         <div class="card-article col mb-3">
           <div class="card h-100">
-            <%if params[:category] == "sport" %>
-              <img src="https://www.shutterstock.com/shutterstock/videos/1108680235/thumb/1.jpg?ip=x480" class="card-img-top" alt="img">
-            <%elsif params[:category] == "technology" %>
-              <img src="https://cdn.pixabay.com/photo/2017/11/27/21/31/computer-2982270_640.jpg" class="card-img-top" alt="img">
-            <%elsif params[:category] == "science" %>
-              <img src="https://media.istockphoto.com/id/1056636768/fr/vid%C3%A9o/%C3%A9quipe-de-chercheurs-travaillant-sur-ordinateur-avec-les-appareils-m%C3%A9dicaux-analyse-de-sang.jpg?s=640x640&k=20&c=ybjl-Z-NFvq_kM8ZkWNuBljLlllTtnD-o6X4J8I3vKc=" class="card-img-top" alt="img">
-            <%elsif params[:category] == "environment" %>
-              <img src="https://external-preview.redd.it/aTaBo2kIdSRoEqjqZmn269dQRqKb2sUOY8MgkL_F2cc.jpg?auto=webp&s=bd30d0edc1dd99f83cf1b68f2a8aabc5f3096cd1" class="card-img-top" alt="img">
-            <%elsif params[:category] == "culture" %>
-              <img src="https://images.pexels.com/photos/1387174/pexels-photo-1387174.jpeg" class="card-img-top" alt="img">
-            <%elsif params[:category] == "business" %>
-              <img src="https://m.media-amazon.com/images/I/81Ej4IQYH+L._AC_UF894,1000_QL80_.jpg" class="card-img-top" alt="img">
-            <% end %>
-            <div class="card-body">
+              <%= image_tag article.image_url, alt: "text" %>
+              <div class="card-body">
               <h5 class="card-title"><strong><%= article.title %></strong></h5>
               <li class="list-group-item"><em><%= article.author %></em></li>
               <li class="list-group-item"><em><%= article.created_at.strftime("%d/%m/%Y") %></em></li>

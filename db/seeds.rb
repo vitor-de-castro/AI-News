@@ -8,6 +8,14 @@ require 'open-uri'
 categories = ["sport", "technology", "environment", "science", "culture", "business"]
 NEWS_API_KEY = "8cc17b89-5eaa-4c0a-a464-0b8751ef4681"
 
+ENVI = ["enviro1.jpg", "enviro2.jpg", "enviro3.jpg", "enviro4.jpg"]
+SPORT = ["bg.jpg", "mainsport.jpg", "sport.jpg", "Sport2.jpg"]
+LEISURE = ["leisure1.jpg", "leisure2.jpg", "leisure3.jpg", "leisure4.jpg"]
+SCIENCE = ["science1.jpg", "science2.png", "science3.jpg", "science4.jpg"]
+TECH = ["Tech1.jpg", "tech2.jpg", "tech3.jpg", "tech4.jpg"]
+FINANCE = ["finance1.jpg", "finance2.jpg", "finance3.jpg", "finance4.jpg"]
+
+
 #Fonction pour changer l'url en fonction de la catégorie souhaitée
 # Répéter la clé pour le contexte
 
@@ -28,12 +36,31 @@ puts "Nettoyage de la base de données"
 
       articles = data["response"]["results"]
       articles.each do |art|
+        image = ""
+
+        if category == "sport"
+          image = SPORT.sample
+        elsif category == "technology"
+          image = TECH.sample
+        elsif category == "environment"
+          image = ENVI.sample
+        elsif category == "science"
+          image = SCIENCE.sample
+        elsif category == "culture"
+          image = LEISURE.sample
+        elsif category == "business"
+          image = FINANCE.sample
+        end
+        puts image
         new_article = Article.new(
+
           title: art["webTitle"],
           content: art["fields"]["bodyText"] || art["fields"]["body"],
           author: art["fields"]["byline"] || "Auteur inconnu",
           date: art["webPublicationDate"],
-          category: category
+          category: category,
+          image_url: image
+
         )
         new_article.save!
       end
