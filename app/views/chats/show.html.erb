@@ -8,7 +8,7 @@
 
         <% current_user.chats.each do |chat| %>
           <ul>
-            <li class="text-primary"><%= chat.title %></li>
+            <li class="text-primary"><%= link_to chat.title, chat_path(chat) %></li>
           </ul>
           <% end %>
 
