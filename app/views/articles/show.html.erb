@@ -24,7 +24,7 @@
       <div class="text-center d-flex justify-content-between mb-4">
 
         <div><%= link_to "← Back to articles", articles_path(category: @article.category), class: "btn btn-dark ms-3" %></div>
-        <div> <%= link_to "Ask NewsBot →", chats_path(category: @article.category), data: { turbo_method: :post }, class: "btn btn-dark me-3" %></div>
+        <div> <%= link_to "Ask NewsBot", chats_path(category: @article.category), data: { turbo_method: :post }, class: "btn btn-dark me-3" %></div>
 
       </div>
 

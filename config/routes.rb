@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :articles, only: [:index, :show] do
-    resources :chats, only: [:create]
+    member do
+    post :summarize_article
+    end
   end
 
   resources :chats, only: [:create, :show] do
