@@ -30,9 +30,9 @@
   margin-left: 10px;
   color: #000;
   position: absolute;
-  left: 50%;             /* milieu horizontal de la page */
-  transform: translateX(-50%); /* ramène le centre du texte sur le milieu */
-  font-weight: bold;     /* ajustable */
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
   z-index: 1;
 }
 
@@ -73,7 +73,7 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: black;
+  background-color: rgb(2, 56, 110);
   color: white;
 }
 
@@ -82,13 +82,13 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: black;
+  background-color: rgb(14, 18, 39);
   color: white;
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .top-drop:hover {
-  border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
 
